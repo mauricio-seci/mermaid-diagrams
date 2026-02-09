@@ -10,7 +10,8 @@ flowchart TB
     CheckInputs -- No --> SafeMode["Modo seguro: FAN (3)"]
     SafeMode --> End("Fin")
     CheckInputs -- Sí --> CheckCurMode{"¿Modo actual?"}
-    CheckCurMode -- FAN --> FAN_Eval{"¿Tz <= HeatSP - Enter?\n¿Tz >= CoolSP_eff + Enter?"}
+    CheckCurMode -- FAN --> FAN_Eval{"¿Tz <= HeatSP - Enter?
+                                    ¿Tz >= CoolSP_eff + Enter?"}
     FAN_Eval -- "Tz <= HeatSP-Enter" --> WasCLG{"¿Último modo fue CLG y ChangeoverDelay activo?"}
     WasCLG -- Sí --> StayFAN["Mantener FAN (delay activo)"]
     StayFAN --> End
